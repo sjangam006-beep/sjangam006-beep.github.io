@@ -1,616 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Satish Store</title>
+    <title>Satish Game Store</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #0b0b12;
-    color: white;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b12;
+            color: white;
+        }
 
-header {
-    background: #151522;
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        header {
+            background: #151522;
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
 
-.logo span {
-    color: #00e5ff;
-}
+        .logo span {
+            color: #00e5ff;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
 
-nav a:hover {
-    color: #00e5ff;
-}
+        nav a:hover {
+            color: #00e5ff;
+        }
 
-.hero {
-    min-height: 430px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #11112a, #19194d);
-}
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0b0b12, #151522);
+        }
 
-.hero h1 {
-    font-size: 50px;
-    margin-bottom: 15px;
-}
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
 
-.hero h1 span {
-    color: #00e5ff;
-}
+        .hero h1 span {
+            color: #00e5ff;
+        }
 
-.hero p {
-    color: #bbb;
-    font-size: 18px;
-    margin-bottom: 30px;
-}
+        .hero p {
+            color: #bbb;
+            font-size: 18px;
+        }
 
-.btn {
-    display: inline-block;
-    background: #00e5ff;
-    color: #000;
-    padding: 12px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
+        .section {
+            padding: 60px 5%;
+        }
 
-.btn:hover {
-    background: white;
-}
+        .section h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 32px;
+            color: #00e5ff;
+        }
 
-.section {
-    padding: 55px 8%;
-}
+        .games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
 
-.section h2 {
-    text-align: center;
-    margin-bottom: 35px;
-    font-size: 32px;
-}
+        .game {
+            background: #151522;
+            border: 1px solid #29293a;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
 
-.games {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
+        .game:hover {
+            transform: translateY(-5px);
+            border-color: #00e5ff;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
 
-.game {
-    background: #171722;
-    border-radius: 14px;
-    overflow: hidden;
-    padding-bottom: 22px;
-    text-align: center;
-    transition: 0.3s;
-}
+        .game-img {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            background: #0b0b12;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-.game:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 8px 25px rgba(0,229,255,0.15);
-}
+        .game h3 {
+            margin-bottom: 10px;
+        }
 
-.game-img {
-    height: 170px;
-    background: linear-gradient(135deg, #24243e, #39396b);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 65px;
-}
+        .game p {
+            color: #aaa;
+            margin-bottom: 12px;
+        }
 
-.game h3 {
-    margin: 18px 0 8px;
-}
+        .price {
+            color: #00e5ff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-.game p {
-    color: #aaa;
-    margin-bottom: 12px;
-    min-height: 20px;
-}
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00e5ff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
 
-.price {
-    color: #00e5ff;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
+        .btn:hover {
+            background: white;
+        }
 
-.divider {
-    height: 2px;
-    background: #222234;
-    margin: 0 8%;
-}
+        .contact {
+            text-align: center;
+        }
 
-footer {
-    background: #151522;
-    text-align: center;
-    padding: 25px;
-    color: #999;
-}
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #151522;
+            color: #888;
+        }
 
-@media (max-width: 700px) {
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
 
-    nav a {
-        margin: 0 7px;
-        font-size: 14px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-}
-</style>
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <!-- HEADER -->
 <header>
-
     <div class="logo">
-        SATISH <span>STORE</span>
+        SATISH <span>GAME STORE</span>
     </div>
 
-    <nav><a href="#home">Home</a>
-<a href="#games">Games</a>
-<a href="#apps">Apps</a>
-<a href="#movies">Movies</a>
-<a href="#contact">Contact</a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#apps">Apps</a>
+        <a href="#movies">Movies</a>
+        <a href="#contact">Contact</a>
     </nav>
-
 </header>
 
 
 <!-- HOME -->
 <section class="hero" id="home">
+    <h1>Welcome to <span>Satish Game Store</span></h1>
+    <p>Games • Apps • Movies • Downloads</p>
+</section>
 
-    <div>
 
-        <h1>
-            Welcome to <span>Satish Store</span>
-        </h1>
+<!-- GAMES -->
+<section class="section" id="games">
 
-        <p>
-            Games, Apps and Movies in one place.
-        </p>
+    <h2>🎮 Game Store</h2>
 
-        <a href="#games" class="btn">
-            EXPLORE STORE
-        </a>
+    <div class="games">
+
+        <div class="game">
+            <div class="game-img">✈️</div>
+            <h3>YSFlight</h3>
+            <p>Flight Simulator</p>
+            <div class="price">DOWNLOAD</div>
+            <a href="./YsflightForWindows_R4789.zip" class="btn">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🚂</div>
+            <h3>OpenTTD</h3>
+            <p>Transport Simulation</p>
+            <div class="price">FREE</div>
+            <a href="https://www.openttd.org/downloads/openttd-releases/latest"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🐧</div>
+            <h3>SuperTux</h3>
+            <p>Platform Game</p>
+            <div class="price">FREE</div>
+            <a href="https://www.supertux.org/download.html"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">⚔️</div>
+            <h3>Battle for Wesnoth</h3>
+            <p>Strategy Game</p>
+            <div class="price">FREE</div>
+            <a href="https://wiki.wesnoth.org/Download"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🔫</div>
+            <h3>Mindustry</h3>
+            <p>Strategy / Tower Defense</p>
+            <div class="price">FREE</div>
+            <a href="https://github.com/Anuken/Mindustry/releases"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🎯</div>
+            <h3>Quetoo</h3>
+            <p>FPS Game</p>
+            <div class="price">FREE</div>
+            <a href="https://www.quetoo.org/"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🌍</div>
+            <h3>Luanti</h3>
+            <p>Sandbox Game</p>
+            <div class="price">FREE</div>
+            <a href="https://www.luanti.org/downloads/"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🏎️</div>
+            <h3>SuperTuxKart</h3>
+            <p>Racing Game</p>
+            <div class="price">FREE</div>
+            <a href="https://supertuxkart.net/Download"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🏛️</div>
+            <h3>Freeciv</h3>
+            <p>Strategy Game</p>
+            <div class="price">FREE</div>
+            <a href="https://www.freeciv.org/"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
+
+        <div class="game">
+            <div class="game-img">🏺</div>
+            <h3>0 A.D.</h3>
+            <p>Historical Strategy</p>
+            <div class="price">FREE</div>
+            <a href="https://play0ad.com/download/"
+               class="btn" target="_blank">
+                DOWNLOAD
+            </a>
+        </div>
 
     </div>
-
 </section>
 
 
-<!-- ========================= -->
-<!-- GAME STORE -->
-<!-- ========================= -->
-
-<section class="section" id="games">
-
-<h2>🎮 Game Store</h2>
-
-<div class="games">
-
-
-<!-- GAME 1 -->
-<div class="game">
-
-    <div class="game-img">✈️</div>
-
-    <h3>YSFlight</h3>
-
-    <p>Flight Simulator</p>
-
-    <div class="price">FREE</div>
-
-    <a href="./YsflightForWindows_R4789.zip"
-       class="btn"
-       download>
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- GAME 2 -->
-<div class="game">
-
-    <div class="game-img">🚂</div>
-
-    <h3>OpenTTD</h3>
-
-    <p>Transport Simulation</p>
-
-    <div class="price">FREE</div>
-
-    <a href="https://www.openttd.org/downloads/openttd-releases/latest"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- GAME 3 -->
-<div class="game">
-
-    <div class="game-img">🐧</div>
-
-    <h3>SuperTux</h3>
-
-    <p>2D Platform Adventure</p>
-
-    <div class="price">FREE</div>
-
-    <a href="https://www.supertux.org/download.html"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- GAME 4 -->
-<div class="game">
-
-    <div class="game-img">⚔️</div>
-
-    <h3>Battle for Wesnoth</h3>
-
-    <p>Fantasy Strategy</p>
-
-    <div class="price">FREE</div>
-
-    <a href="https://wiki.wesnoth.org/Download"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- GAME 5 -->
-<div class="game">
-
-    <div class="game-img">🏭</div>
-
-    <h3>Mindustry</h3>
-
-    <p>Factory & Strategy</p>
-
-    <div class="price">FREE</div>
-
-    <a href="https://github.com/Anuken/Mindustry/releases"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- GAME 6 -->
-<div class="game">
-
-    <div class="game-img">🏎️</div>
-
-    <h3>SuperTuxKart</h3>
-
-    <p>3D Racing Game</p>
-
-    <div class="price">FREE</div>
-
-    <a href="https://supertuxkart.net/Download"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-</div>
-</section>
-
-
-<div class="divider"></div>
-
-
-<!-- ========================= -->
-<!-- APP STORE -->
-<!-- ========================= -->
-
+<!-- APPS -->
 <section class="section" id="apps">
 
-<h2>📱 App Store</h2>
+    <h2>📱 App Store</h2>
 
-<div class="games">
+    <div class="games">
 
+        <div class="game">
+            <div class="game-img">📺</div>
+            <h3>NetMirror</h3>
+            <p>Android App</p>
+            <div class="price">DOWNLOAD</div>
+            <a href="./NetMirror-App-Free-Official-For-Andro-99220.zip"
+               class="btn">
+                DOWNLOAD
+            </a>
+        </div>
 
-<!-- APP 1 -->
-<div class="game">
+        <div class="game">
+            <div class="game-img">📱</div>
+            <h3>My App 2</h3>
+            <p>Android Application</p>
+            <div class="price">DOWNLOAD</div>
+            <a href="./MyApp2.apk" class="btn">
+                DOWNLOAD
+            </a>
+        </div>
 
-    <div class="game-img">📺</div>
+        <div class="game">
+            <div class="game-img">📱</div>
+            <h3>My App 3</h3>
+            <p>Android Application</p>
+            <div class="price">DOWNLOAD</div>
+            <a href="./MyApp3.apk" class="btn">
+                DOWNLOAD
+            </a>
+        </div>
 
-    <h3>NetMirror</h3>
-
-    <p>Android App</p>
-
-    <div class="price">FREE</div>
-
-    <!-- APNI APK/ZIP FILE KA NAAM YHA DALO -->
-    <a href="./NetMirror-App-Free-Official-For-Andro-99220.zip"
-       class="btn"
-       download>
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- APP 2 -->
-<div class="game">
-
-    <div class="game-img">📱</div>
-
-    <h3>My App 2</h3>
-
-    <p>Android Application</p>
-
-    <div class="price">FREE</div>
-
-    <a href="./MyApp2.apk"
-       class="btn"
-       download>
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- APP 3 -->
-<div class="game">
-
-    <div class="game-img">⚡</div>
-
-    <h3>My App 3</h3>
-
-    <p>Useful Android App</p>
-
-    <div class="price">FREE</div>
-
-    <a href="./MyApp3.apk"
-       class="btn"
-       download>
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-<!-- APP 4 -->
-<div class="game">
-
-    <div class="game-img">🛠️</div>
-
-    <h3>My App 4</h3>
-
-    <p>Utility Application</p>
-
-    <div class="price">FREE</div>
-
-    <a href="./MyApp4.apk"
-       class="btn"
-       download>
-       DOWNLOAD
-    </a>
-
-</div>
-
-
-</div>
+    </div>
 </section>
 
 
-<div class="divider"></div>
-
-
-<!-- ========================= -->
-<!-- MOVIE STORE -->
-<!-- ========================= -->
-
+<!-- MOVIES -->
 <section class="section" id="movies">
 
-<h2>🎬 Movie Store</h2>
+    <h2>🎬 Movie Store</h2>
 
-<div class="games">
+    <div class="games">
 
+        <div class="game">
+            <div class="game-img">🎬</div>
+            <h3>India's Got Latent S02</h3>
+            <p>Hindi • Web Series • 720p</p>
+            <div class="price">WATCH / DOWNLOAD</div>
 
-<!-- MOVIE 1 -->
-<div class="game">
-
-    <div class="game-img">🎬</div>
-
-    <h3>Movie Name 1</h3>
-
-    <p>Official / Legal Source</p>
-
-    <div class="price">WATCH</div>
-
-    <a href="https://example.com"
-       class="btn"
-       target="_blank">
-       WATCH NOW
-    </a>
-
-</div>
+            <a href="YOUR_AUTHORIZED_LINK_1"
+               class="btn"
+               target="_blank"
+               rel="noopener">
+                WATCH / DOWNLOAD
+            </a>
+        </div>
 
 
-<!-- MOVIE 2 -->
-<div class="game">
+        <div class="game">
+            <div class="game-img">🎬</div>
+            <h3>G.D.N. 2026</h3>
+            <p>Hindi – Tamil • 1080p / 720p / 480p</p>
+            <div class="price">WATCH / DOWNLOAD</div>
 
-    <div class="game-img">🍿</div>
-
-    <h3>Movie Name 2</h3>
-
-    <p>Official / Legal Source</p>
-
-    <div class="price">WATCH</div>
-
-    <a href="https://example.com"
-       class="btn"
-       target="_blank">
-       WATCH NOW
-    </a>
-
-</div>
+            <a href="YOUR_AUTHORIZED_LINK_2"
+               class="btn"
+               target="_blank"
+               rel="noopener">
+                WATCH / DOWNLOAD
+            </a>
+        </div>
 
 
-<!-- MOVIE 3 -->
-<div class="game">
+        <div class="game">
+            <div class="game-img">🎬</div>
+            <h3>Thukra Ke Mera Pyaar S02</h3>
+            <p>Hindi • 720p / 480p • Episodes 46–50</p>
+            <div class="price">WATCH / DOWNLOAD</div>
 
-    <div class="game-img">🎥</div>
+            <a href="YOUR_AUTHORIZED_LINK_3"
+               class="btn"
+               target="_blank"
+               rel="noopener">
+                WATCH / DOWNLOAD
+            </a>
+        </div>
 
-    <h3>Movie Name 3</h3>
-
-    <p>Official / Legal Source</p>
-
-    <div class="price">WATCH</div>
-
-    <a href="https://example.com"
-       class="btn"
-       target="_blank">
-       WATCH NOW
-    </a>
-
-</div>
-
-
-<!-- MOVIE 4 -->
-<div class="game">
-
-    <div class="game-img">🍿</div>
-
-    <h3>Movie Name 4</h3>
-
-    <p>Official / Legal Source</p>
-
-    <div class="price">WATCH</div>
-
-    <a href="https://example.com"
-       class="btn"
-       target="_blank">
-       WATCH NOW
-    </a>
-
-</div>
-
-
-</div>
-</section>
-<!-- MOVIE STORE -->
-<section class="section" id="movies">
-
-<h2>🎬 Movie Store</h2>
-
-<div class="games">
-
-<div class="game">
-
-    <div class="game-img">🎬</div>
-
-    <h3>Mirzapur The Movie</h3>
-
-    <p>Hindi • 1080p</p>
-
-    <div class="price">DOWNLOAD</div>
-
-    <a href="https://gofile.io/d/jPYIIlkS"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-
-</div>
-
-</div>
-</section>
-    <!-- GAME STORE -->
-<section class="section" id="games">
-    ...
-</section>
-
-
-<!-- MOVIE STORE -->
-<section class="section" id="movies">
-    ...
+    </div>
 </section>
 
 
 <!-- CONTACT -->
-<section class="section" id="contact">
-    ...
-</section>
-<section class="section" id="contact">
+<section class="section contact" id="contact">
 
-<h2>📞 Contact Us</h2>
+    <h2>📩 Contact</h2>
 
-<p style="text-align:center;color:#aaa;">
-    Contact Satish Store for more information.
-</p>
+    <p>
+        For any query, contact Satish Game Store.
+    </p>
 
 </section>
 
 
 <!-- FOOTER -->
 <footer>
-
-    © 2026 Satish Store. All Rights Reserved.
-
+    © 2026 Satish Game Store | All Rights Reserved
 </footer>
-
 
 </body>
 </html>
