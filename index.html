@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Satish Game Store</title>
+
+<style>
 * {
     margin: 0;
     padding: 0;
@@ -27,11 +36,6 @@ header {
     color: #00e5ff;
 }
 
-.logo a {
-    color: inherit;
-    text-decoration: none;
-}
-
 nav a {
     color: white;
     text-decoration: none;
@@ -43,7 +47,7 @@ nav a:hover {
 }
 
 .hero {
-    min-height: 380px;
+    min-height: 430px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,9 +79,6 @@ nav a:hover {
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
 }
 
 .btn:hover {
@@ -107,9 +108,6 @@ nav a:hover {
     padding-bottom: 22px;
     text-align: center;
     transition: 0.3s;
-    text-decoration: none;
-    color: white;
-    display: block;
 }
 
 .game:hover {
@@ -142,48 +140,6 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
-.game-detail {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.game-detail .game-img {
-    height: 240px;
-    border-radius: 14px;
-    font-size: 100px;
-    margin-bottom: 25px;
-}
-
-.game-detail h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-.game-detail .tagline {
-    color: #aaa;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.game-detail .description {
-    color: #ccc;
-    line-height: 1.7;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.back-link {
-    display: inline-block;
-    margin-bottom: 25px;
-    color: #00e5ff;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
 footer {
     background: #151522;
     text-align: center;
@@ -200,3 +156,214 @@ footer {
         font-size: 36px;
     }
 }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        SATISH <span>GAME STORE</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="home">
+    <div>
+        <h1>Welcome to <span>Satish Game Store</span></h1>
+
+        <p>
+            Discover amazing free games and start your gaming journey.
+        </p>
+
+        <a href="#games" class="btn">
+            EXPLORE GAMES
+        </a>
+    </div>
+</section>
+
+
+<section class="section" id="games">
+
+<h2>🔥 Featured Games</h2>
+
+<div class="games">
+
+
+<!-- 1 YSFLIGHT -->
+<div class="game">
+    <div class="game-img">✈️</div>
+    <h3>YSFlight</h3>
+    <p>Flight Simulator</p>
+    <div class="price">FREE</div>
+
+    <a href="./YsflightForWindows_R4789.zip"
+       class="btn"
+       download>
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 2 OPENTTD -->
+<div class="game">
+    <div class="game-img">🚂</div>
+    <h3>OpenTTD</h3>
+    <p>Transport Simulation</p>
+    <div class="price">FREE</div>
+
+    <a href="https://www.openttd.org/downloads/openttd-releases/latest"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 3 SUPERTUX -->
+<div class="game">
+    <div class="game-img">🐧</div>
+    <h3>SuperTux</h3>
+    <p>2D Platform Adventure</p>
+    <div class="price">FREE</div>
+
+    <a href="https://www.supertux.org/download.html"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 4 BATTLE FOR WESNOTH -->
+<div class="game">
+    <div class="game-img">⚔️</div>
+    <h3>Battle for Wesnoth</h3>
+    <p>Fantasy Strategy</p>
+    <div class="price">FREE</div>
+
+    <a href="https://wiki.wesnoth.org/Download"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 5 MINDUSTRY -->
+<div class="game">
+    <div class="game-img">🏭</div>
+    <h3>Mindustry</h3>
+    <p>Factory & Strategy</p>
+    <div class="price">FREE</div>
+
+    <a href="https://github.com/Anuken/Mindustry/releases"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 6 QUETOO -->
+<div class="game">
+    <div class="game-img">🔫</div>
+    <h3>Quetoo</h3>
+    <p>Classic FPS</p>
+    <div class="price">FREE</div>
+
+    <a href="https://www.quetoo.org/"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 7 LUAR -->
+<div class="game">
+    <div class="game-img">🎮</div>
+    <h3>Luanti</h3>
+    <p>Open World Game Engine</p>
+    <div class="price">FREE</div>
+
+    <a href="https://www.luanti.org/downloads/"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 8 SUPERTUXKART -->
+<div class="game">
+    <div class="game-img">🏎️</div>
+    <h3>SuperTuxKart</h3>
+    <p>3D Racing Game</p>
+    <div class="price">FREE</div>
+
+    <a href="https://supertuxkart.net/Download"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 9 FREECIV -->
+<div class="game">
+    <div class="game-img">🌍</div>
+    <h3>Freeciv</h3>
+    <p>Strategy Civilization</p>
+    <div class="price">FREE</div>
+
+    <a href="https://www.freeciv.org/"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+<!-- 10 0 A.D. -->
+<div class="game">
+    <div class="game-img">🏛️</div>
+    <h3>0 A.D.</h3>
+    <p>Ancient World Strategy</p>
+    <div class="price">FREE</div>
+
+    <a href="https://play0ad.com/download/"
+       class="btn"
+       target="_blank">
+       DOWNLOAD
+    </a>
+</div>
+
+
+</div>
+</section>
+
+
+<section class="section" id="contact">
+
+<h2>📞 Contact Us</h2>
+
+<p style="text-align:center;color:#aaa;">
+    Contact Satish Game Store for more information.
+</p>
+
+</section>
+
+
+<footer>
+    © 2026 Satish Game Store. All Rights Reserved.
+</footer>
+
+</body>
+</html>
