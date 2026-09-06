@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Satish Game Store</title>
+<title>Satish Store</title>
 
 <style>
 * {
@@ -15,16 +15,19 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #0b0b12;
+    background: #080810;
     color: white;
 }
 
 header {
     background: #151522;
-    padding: 20px 8%;
+    padding: 20px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -39,7 +42,8 @@ header {
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 25px;
+    margin-left: 20px;
+    font-weight: bold;
 }
 
 nav a:hover {
@@ -52,8 +56,8 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px 20px;
     background: linear-gradient(135deg, #11112a, #19194d);
+    padding: 40px 20px;
 }
 
 .hero h1 {
@@ -86,51 +90,63 @@ nav a:hover {
 }
 
 .section {
-    padding: 55px 8%;
+    padding: 60px 7%;
 }
 
 .section h2 {
     text-align: center;
     margin-bottom: 35px;
-    font-size: 32px;
+    font-size: 34px;
 }
 
-.games {
+.games,
+.apps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
 
-.game {
+.game,
+.app {
     background: #171722;
     border-radius: 14px;
     overflow: hidden;
-    padding-bottom: 22px;
     text-align: center;
+    padding-bottom: 22px;
     transition: 0.3s;
 }
 
-.game:hover {
+.game:hover,
+.app:hover {
     transform: translateY(-7px);
 }
 
-.game-img {
+.game-img,
+.app-img {
     height: 170px;
-    background: linear-gradient(135deg, #24243e, #39396b);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 65px;
 }
 
-.game h3 {
+.game-img {
+    background: linear-gradient(135deg, #24243e, #39396b);
+}
+
+.app-img {
+    background: linear-gradient(135deg, #162c36, #245565);
+}
+
+.game h3,
+.app h3 {
     margin: 18px 0 8px;
 }
 
-.game p {
+.game p,
+.app p {
     color: #aaa;
     margin-bottom: 12px;
-    min-height: 20px;
 }
 
 .price {
@@ -140,6 +156,22 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
+.store-title {
+    color: #00e5ff;
+}
+
+.app-title {
+    color: #00ff9d;
+}
+
+.app .btn {
+    background: #00ff9d;
+}
+
+.app .btn:hover {
+    background: white;
+}
+
 footer {
     background: #151522;
     text-align: center;
@@ -147,7 +179,7 @@ footer {
     color: #999;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     nav {
         display: none;
     }
@@ -162,207 +194,283 @@ footer {
 <body>
 
 <header>
+
     <div class="logo">
-        SATISH <span>GAME STORE</span>
+        SATISH <span>STORE</span>
     </div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#games">Games</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">HOME</a>
+        <a href="#games">🎮 GAME STORE</a>
+        <a href="#apps">📱 APP STORE</a>
+        <a href="#contact">CONTACT</a>
     </nav>
+
 </header>
 
 
+<!-- HOME -->
+
 <section class="hero" id="home">
+
     <div>
-        <h1>Welcome to <span>Satish Game Store</span></h1>
+
+        <h1>
+            Welcome to <span>Satish Store</span>
+        </h1>
 
         <p>
-            Discover amazing free games and start your gaming journey.
+            Games & Apps — All in One Place
         </p>
 
         <a href="#games" class="btn">
-            EXPLORE GAMES
+            EXPLORE GAME STORE
         </a>
+
     </div>
+
 </section>
 
+
+<!-- GAME STORE -->
 
 <section class="section" id="games">
 
-<h2>🔥 Featured Games</h2>
+    <h2>
+        🎮 <span class="store-title">GAME STORE</span>
+    </h2>
 
-<div class="games">
-
-
-<!-- 1 YSFLIGHT -->
-<div class="game">
-    <div class="game-img">✈️</div>
-    <h3>YSFlight</h3>
-    <p>Flight Simulator</p>
-    <div class="price">FREE</div>
-
-    <a href="./YsflightForWindows_R4789.zip"
-       class="btn"
-       download>
-       DOWNLOAD
-    </a>
-</div>
+    <div class="games">
 
 
-<!-- 2 OPENTTD -->
-<div class="game">
-    <div class="game-img">🚂</div>
-    <h3>OpenTTD</h3>
-    <p>Transport Simulation</p>
-    <div class="price">FREE</div>
+        <div class="game">
 
-    <a href="https://www.openttd.org/downloads/openttd-releases/latest"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="game-img">✈️</div>
 
+            <h3>YSFlight</h3>
 
-<!-- 3 SUPERTUX -->
-<div class="game">
-    <div class="game-img">🐧</div>
-    <h3>SuperTux</h3>
-    <p>2D Platform Adventure</p>
-    <div class="price">FREE</div>
+            <p>Flight Simulator</p>
 
-    <a href="https://www.supertux.org/download.html"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="price">FREE</div>
+
+            <a href="./YsflightForWindows_R4789.zip"
+               class="btn"
+               download>
+               DOWNLOAD
+            </a>
+
+        </div>
 
 
-<!-- 4 BATTLE FOR WESNOTH -->
-<div class="game">
-    <div class="game-img">⚔️</div>
-    <h3>Battle for Wesnoth</h3>
-    <p>Fantasy Strategy</p>
-    <div class="price">FREE</div>
+        <div class="game">
 
-    <a href="https://wiki.wesnoth.org/Download"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="game-img">🚂</div>
 
+            <h3>OpenTTD</h3>
 
-<!-- 5 MINDUSTRY -->
-<div class="game">
-    <div class="game-img">🏭</div>
-    <h3>Mindustry</h3>
-    <p>Factory & Strategy</p>
-    <div class="price">FREE</div>
+            <p>Transport Simulation</p>
 
-    <a href="https://github.com/Anuken/Mindustry/releases"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="price">FREE</div>
+
+            <a href="https://www.openttd.org/downloads/openttd-releases/latest"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
 
 
-<!-- 6 QUETOO -->
-<div class="game">
-    <div class="game-img">🔫</div>
-    <h3>Quetoo</h3>
-    <p>Classic FPS</p>
-    <div class="price">FREE</div>
+        <div class="game">
 
-    <a href="https://www.quetoo.org/"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="game-img">🐧</div>
 
+            <h3>SuperTux</h3>
 
-<!-- 7 LUAR -->
-<div class="game">
-    <div class="game-img">🎮</div>
-    <h3>Luanti</h3>
-    <p>Open World Game Engine</p>
-    <div class="price">FREE</div>
+            <p>2D Platform Game</p>
 
-    <a href="https://www.luanti.org/downloads/"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="price">FREE</div>
+
+            <a href="https://www.supertux.org/download.html"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
 
 
-<!-- 8 SUPERTUXKART -->
-<div class="game">
-    <div class="game-img">🏎️</div>
-    <h3>SuperTuxKart</h3>
-    <p>3D Racing Game</p>
-    <div class="price">FREE</div>
+        <div class="game">
 
-    <a href="https://supertuxkart.net/Download"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="game-img">🏎️</div>
 
+            <h3>SuperTuxKart</h3>
 
-<!-- 9 FREECIV -->
-<div class="game">
-    <div class="game-img">🌍</div>
-    <h3>Freeciv</h3>
-    <p>Strategy Civilization</p>
-    <div class="price">FREE</div>
+            <p>3D Racing Game</p>
 
-    <a href="https://www.freeciv.org/"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="price">FREE</div>
+
+            <a href="https://supertuxkart.net/Download"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
 
 
-<!-- 10 0 A.D. -->
-<div class="game">
-    <div class="game-img">🏛️</div>
-    <h3>0 A.D.</h3>
-    <p>Ancient World Strategy</p>
-    <div class="price">FREE</div>
+        <div class="game">
 
-    <a href="https://play0ad.com/download/"
-       class="btn"
-       target="_blank">
-       DOWNLOAD
-    </a>
-</div>
+            <div class="game-img">⚔️</div>
+
+            <h3>Battle for Wesnoth</h3>
+
+            <p>Fantasy Strategy</p>
+
+            <div class="price">FREE</div>
+
+            <a href="https://wiki.wesnoth.org/Download"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
 
 
-</div>
+    </div>
+
 </section>
 
 
+<!-- APP STORE -->
+
+<section class="section" id="apps">
+
+    <h2>
+        📱 <span class="app-title">APP STORE</span>
+    </h2>
+
+    <div class="apps">
+
+
+        <div class="app">
+
+            <div class="app-img">🌐</div>
+
+            <h3>Mozilla Firefox</h3>
+
+            <p>Fast Web Browser</p>
+
+            <div class="price">FREE</div>
+
+            <a href="https://www.mozilla.org/firefox/new/"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+
+        <div class="app">
+
+            <div class="app-img">💻</div>
+
+            <h3>VLC Media Player</h3>
+
+            <p>Video & Music Player</p>
+
+            <div class="price">FREE</div>
+
+            <a href="https://www.videolan.org/vlc/"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+
+        <div class="app">
+
+            <div class="app-img">📦</div>
+
+            <h3>7-Zip</h3>
+
+            <p>File Compression Tool</p>
+
+            <div class="price">FREE</div>
+
+            <a href="https://www.7-zip.org/download.html"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+
+        <div class="app">
+
+            <div class="app-img">🎨</div>
+
+            <h3>GIMP</h3>
+
+            <p>Image Editing Software</p>
+
+            <div class="price">FREE</div>
+
+            <a href="https://www.gimp.org/downloads/"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+
+        <div class="app">
+
+            <div class="app-img">📝</div>
+
+            <h3>LibreOffice</h3>
+
+            <p>Office Productivity Suite</p>
+
+            <div class="price">FREE</div>
+
+            <a href="https://www.libreoffice.org/download/download-libreoffice/"
+               class="btn"
+               target="_blank">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
 <section class="section" id="contact">
 
-<h2>📞 Contact Us</h2>
+    <h2>📞 Contact Us</h2>
 
-<p style="text-align:center;color:#aaa;">
-    Contact Satish Game Store for more information.
-</p>
+    <p style="text-align:center;color:#aaa;">
+        Contact Satish Store for more information.
+    </p>
 
 </section>
 
 
 <footer>
-    © 2026 Satish Game Store. All Rights Reserved.
+
+    © 2026 Satish Store. All Rights Reserved.
+
 </footer>
 
 </body>
