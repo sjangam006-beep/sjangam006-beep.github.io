@@ -1,329 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Satish Game Store</title>
+<title>Satish Game Store</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b0b12;
-            color: white;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b12;
+    color: white;
+}
 
-        header {
-            background: #151522;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+header {
+    background: #151522;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-        .logo span {
-            color: #00e5ff;
-        }
+.logo span {
+    color: #00e5ff;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
 
-        nav a:hover {
-            color: #00e5ff;
-        }
+.hero {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #11112a, #19194d);
+}
 
-        .hero {
-            min-height: 450px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #11112a, #19194d);
-        }
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
 
-        .hero h1 {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
+.hero h1 span {
+    color: #00e5ff;
+}
 
-        .hero h1 span {
-            color: #00e5ff;
-        }
+.hero p {
+    color: #bbbbbb;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
 
-        .hero p {
-            color: #bbbbbb;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+.btn {
+    display: inline-block;
+    background: #00e5ff;
+    color: #000;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        .btn {
-            display: inline-block;
-            background: #00e5ff;
-            color: #000000;
-            padding: 13px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.section {
+    padding: 50px 8%;
+}
 
-        .btn:hover {
-            background: white;
-        }
+.section h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+}
 
-        .section {
-            padding: 50px 8%;
-        }
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
 
-        .section h2 {
-            text-align: center;
-            margin-bottom: 35px;
-            font-size: 32px;
-        }
+.game {
+    background: #171722;
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    text-align: center;
+}
 
-        .games {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
+.game-img {
+    height: 180px;
+    background: linear-gradient(135deg, #24243e, #39396b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+}
 
-        .game {
-            background: #171722;
-            border-radius: 12px;
-            overflow: hidden;
-            padding-bottom: 20px;
-            text-align: center;
-        }
+.game h3 {
+    margin: 18px 0 8px;
+}
 
-        .game-img {
-            height: 180px;
-            background: linear-gradient(135deg, #24243e, #39396b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-        }
+.game p {
+    color: #aaa;
+    margin-bottom: 12px;
+}
 
-        .game h3 {
-            margin: 18px 0 8px;
-        }
+.price {
+    color: #00e5ff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
 
-        .game p {
-            color: #aaaaaa;
-            margin-bottom: 12px;
-        }
+footer {
+    background: #151522;
+    text-align: center;
+    padding: 25px;
+    color: #999;
+}
 
-        .price {
-            color: #00e5ff;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+@media (max-width: 600px) {
+    nav {
+        display: none;
+    }
 
-        footer {
-            background: #151522;
-            text-align: center;
-            padding: 25px;
-            color: #999999;
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-        }
-    </style>
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            SATISH <span>GAME STORE</span>
-        </div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#games">Games</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-
-    <section class="hero" id="home">
-
-        <div>
-            <h1>
-                Welcome to <span>Satish Game Store</span>
-            </h1>
-
-            <p>
-                Discover amazing games and start your gaming journey.
-            </p>
-
-            <a href="#games" class="btn">
-                EXPLORE GAMES
-            </a>
-        </div>
-
-    </section>
-
-
-    <section class="section" id="games">
-
-        <h2>🔥 Featured Games</h2>
-
-        <div class="games">
-            <div class="game">
-
-    <div class="game-img">
-        ✈️
+<header>
+    <div class="logo">
+        SATISH <span>GAME STORE</span>
     </div>
 
-    <h3>YSFlight</h3>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <p>Flight Simulator</p>
+<section class="hero" id="home">
+    <div>
+        <h1>Welcome to <span>Satish Game Store</span></h1>
+        <p>Discover amazing games and start your gaming journey.</p>
+        <a href="#games" class="btn">EXPLORE GAMES</a>
+    </div>
+</section>
 
-    <div class="price">
-        FREE
+<section class="section" id="games">
+
+<h2>🔥 Featured Games</h2>
+
+<div class="games">
+
+    <!-- YSFlight -->
+    <div class="game">
+        <div class="game-img">✈️</div>
+
+        <h3>YSFlight</h3>
+
+        <p>Flight Simulator</p>
+
+        <div class="price">FREE</div>
+
+        <a href="./YsflightForWindows_R4789.zip"
+           class="btn"
+           download>
+           DOWNLOAD GAME
+        </a>
     </div>
 
-    <a href="YsflightForWindows_R4789.zip" class="btn" download>
-        DOWNLOAD GAME
-    </a>
+    <!-- Game 01 -->
+    <div class="game">
+        <div class="game-img">🎮</div>
+        <h3>Game 01</h3>
+        <p>Action Adventure</p>
+        <div class="price">₹499</div>
+        <a href="#" class="btn">BUY NOW</a>
+    </div>
+
+    <!-- Game 02 -->
+    <div class="game">
+        <div class="game-img">⚔️</div>
+        <h3>Game 02</h3>
+        <p>Battle Game</p>
+        <div class="price">₹699</div>
+        <a href="#" class="btn">BUY NOW</a>
+    </div>
+
+    <!-- Game 03 -->
+    <div class="game">
+        <div class="game-img">🏎️</div>
+        <h3>Game 03</h3>
+        <p>Racing Game</p>
+        <div class="price">₹399</div>
+        <a href="#" class="btn">BUY NOW</a>
+    </div>
+
+    <!-- Game 04 -->
+    <div class="game">
+        <div class="game-img">🔫</div>
+        <h3>Game 04</h3>
+        <p>Shooting Game</p>
+        <div class="price">₹599</div>
+        <a href="#" class="btn">BUY NOW</a>
+    </div>
 
 </div>
+</section>
 
-            <div class="game">
+<section class="section" id="contact">
+    <h2>📞 Contact Us</h2>
 
-                <div class="game-img">
-                    🎮
-                </div>
+    <p style="text-align:center;color:#aaa;">
+        Contact Satish Game Store for more information.
+    </p>
+</section>
 
-                <h3>Game 01</h3>
-
-                <p>
-                    Action Adventure
-                </p>
-
-                <div class="price">
-                    ₹499
-                </div>
-
-                <a href="#" class="btn">
-                    BUY NOW
-                </a>
-
-            </div>
-
-
-            <div class="game">
-
-                <div class="game-img">
-                    ⚔️
-                </div>
-
-                <h3>Game 02</h3>
-
-                <p>
-                    Battle Game
-                </p>
-
-                <div class="price">
-                    ₹699
-                </div>
-
-                <a href="#" class="btn">
-                    BUY NOW
-                </a>
-
-            </div>
-
-
-            <div class="game">
-
-                <div class="game-img">
-                    🏎️
-                </div>
-
-                <h3>Game 03</h3>
-
-                <p>
-                    Racing Game
-                </p>
-
-                <div class="price">
-                    ₹399
-                </div>
-
-                <a href="#" class="btn">
-                    BUY NOW
-                </a>
-
-            </div>
-
-
-            <div class="game">
-
-                <div class="game-img">
-                    🔫
-                </div>
-
-                <h3>Game 04</h3>
-
-                <p>
-                    Shooting Game
-                </p>
-
-                <div class="price">
-                    ₹599
-                </div>
-
-                <a href="#" class="btn">
-                    BUY NOW
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="section" id="contact">
-
-        <h2>📞 Contact Us</h2>
-
-        <p style="text-align: center; color: #aaaaaa;">
-            Contact Satish Game Store for more information.
-        </p>
-
-    </section>
-
-
-    <footer>
-
-        © 2026 Satish Game Store. All Rights Reserved.
-
-    </footer>
+<footer>
+    © 2026 Satish Game Store. All Rights Reserved.
+</footer>
 
 </body>
 </html>
